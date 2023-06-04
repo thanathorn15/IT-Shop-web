@@ -1,34 +1,23 @@
 import {Route,Routes} from 'react-router-dom'
-import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Products from './pages/Products'
 import MyOrder from './pages/MyOrder'
 import Login from './pages/Login'
-import Cart from './pages/Cart'
+import Register from '../pages/Register'
 
 
-
-
-
-
-function App() {
-
-
+export default function Router() {
   return (
-    <>
-     <Navbar/>
-     <Routes>
+    <div>
+<Routes>
   <Route path='/' element={<Home/>} />
   <Route path='/product' element={<Products/>} />
   <Route path='/myorder' element={<MyOrder/>} />
-  <Route path='/cart' element={<Cart/>} />
   <Route path='/login' element={<Login/>} />
+  <Route path='/register' element={<Register/>} />
  
  
 </Routes>
-
-    </>
+    </div>
   )
 }
-
-export default App

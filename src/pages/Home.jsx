@@ -1,11 +1,130 @@
-import React from 'react'
-import Banner from '../components/Banner'
+import React from "react";
+import Banner from "../components/Banner";
+import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
+
 
 export default function Home() {
   return (
     <>
-   <Banner/>
+      <Banner />
+      <div className="container mx-auto">
+        <h2 className="text-2xl py-10 text-center font-medium text-gray-700">
+          Feature Products
+        </h2>
 
-</>
-  )
+        <div className="flex gap-6">
+          <div
+            className=" flex flex-col bg-gray-50 gap-3 shadow-md hover:shadow-xl 
+        hover:scale-105 duration-300 px-4 py-7 rounded-sm overflow-hidden max-w-sm"
+          >
+            <div className="flex justify-center ">
+              <img
+                className="w-72 h-48 object-contain hover:scale-110 duration-500"
+                src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14-plus.jpg"
+              />
+            </div>
+            <div className=" flex justify-between items-center">
+              <h2 className="text-stone-950 font-semibold text-xl ">
+                Apple iphone 14
+              </h2>
+              <div className="badge badge-secondary">NEW</div>
+            </div>
+            <p className="text-sm text-gray-600">
+              Brand: <span className="font-semibold ">Apple</span>
+            </p>
+            <p className="text-sm text-gray-600">
+              Price: <span className="text-rose-500 font-semibold">31,229฿</span>
+            </p>
+
+            <div className="flex justify-between items-center">
+              <div className="hover:text-rose-50 text-gray-900 duration-300 flex justify-between items-center">
+                <button className="text-sky-400 px-2 py-1 border border-sky-400 rounded-md hover:bg-sky-400 hover:text-sky-50 duration-300">
+                  More Detail
+                </button>
+              </div>
+              <button className="bg-sky-400 text-sky-50 hover:bg-sky-50 hover:text-sky-400 duration-300 border border-sky-400 px-2 py-1 rounded-md">
+                add to cart
+              </button>
+            </div>
+          </div>
+
+          <div
+            className=" flex flex-col bg-gray-50 gap-3 shadow-md hover:shadow-xl 
+        hover:scale-105 duration-300 px-4 py-7 rounded-sm overflow-hidden max-w-sm"
+          >
+            <div className="flex justify-center ">
+              <img
+                className="w-72 h-48 object-contain hover:scale-110 duration-500"
+                src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14-plus.jpg"
+              />
+            </div>
+            <div className=" flex justify-between items-center">
+              <h2 className="text-stone-950 font-semibold text-xl ">
+                Apple iphone 14
+              </h2>
+              <div className="badge badge-secondary">NEW</div>
+            </div>
+            <p className="text-sm text-gray-600">
+              Brand: <span className="font-semibold ">Apple</span>
+            </p>
+            <p className="text-sm text-gray-600">
+              Price: <span className="text-rose-500 font-semibold">31,229฿</span>
+            </p>
+
+            <div className="flex justify-between items-center">
+              <div className="hover:text-rose-50 text-gray-900 duration-300 flex justify-between items-center">
+                <button className="text-sky-400 px-2 py-1 border border-sky-400 rounded-md hover:bg-sky-400 hover:text-sky-50 duration-300">
+                  More Detail
+                </button>
+              </div>
+              <button className="bg-sky-400 text-sky-50 hover:bg-sky-50 hover:text-sky-400 duration-300 border border-sky-400 px-2 py-1 rounded-md">
+                add to cart
+              </button>
+            </div>
+          </div>
+
+          <div
+            className=" flex flex-col bg-gray-50 gap-3 shadow-md hover:shadow-xl 
+        hover:scale-105 duration-300 px-4 py-7 rounded-sm overflow-hidden max-w-sm"
+          >
+            <div className="flex justify-center ">
+              <img
+                className="w-72 h-48 object-contain hover:scale-110 duration-500"
+                src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14-plus.jpg"
+              />
+            </div>
+            <div className=" flex justify-between items-center">
+              <h2 className="text-stone-950 font-semibold text-xl ">
+                Apple iphone 14
+              </h2>
+              <div className="badge badge-secondary">NEW</div>
+            </div>
+            <p className="text-sm text-gray-600">
+              Brand: <span className="font-semibold ">Apple</span>
+            </p>
+            <p className="text-sm text-gray-600">
+              Price: <span className="text-rose-500 font-semibold">31,229฿</span>
+            </p>
+
+            <div className="flex justify-between items-center">
+              <div className="hover:text-rose-50 text-gray-900 duration-300 flex justify-between items-center">
+                <button className="text-sky-400 px-2 py-1 border border-sky-400 rounded-md hover:bg-sky-400 hover:text-sky-50 duration-300">
+                  More Detail
+                </button>
+              </div>
+              <button className="bg-sky-400 text-sky-50 hover:bg-sky-50 hover:text-sky-400 duration-300 border border-sky-400 px-2 py-1 rounded-md">
+                add to cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+<div className="mb-6"></div>
+      <Footer/>
+    </>
+  );
 }
+
+
+
