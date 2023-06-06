@@ -1,34 +1,13 @@
-import {Route,Routes} from 'react-router-dom'
-import Navbar from './components/Navbar'
-import Home from './pages/Home'
-import Products from './pages/Products'
-import MyOrder from './pages/MyOrder'
-import Login from './pages/Login'
-import Cart from './pages/Cart'
-
-
-
-
-
+import Navbar from "./components/Navbar";
+import Router from "./routes/Router";
 
 function App() {
-
-
   return (
     <>
-     <Navbar/>
-     <Routes>
-  <Route path='/' element={<Home/>} />
-  <Route path='/product' element={<Products/>} />
-  <Route path='/myorder' element={<MyOrder/>} />
-  <Route path='/cart' element={<Cart/>} />
-  <Route path='/login' element={<Login/>} />
- 
- 
-</Routes>
-
+      <Navbar />
+      <Router />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

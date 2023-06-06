@@ -9,11 +9,11 @@ export default function Login() {
     <h1 className="text-3xl font-semibold text-center text-gray-700">
       Login
     </h1>
-    <form className="space-y-4">
+    <form className="space-y-4 pt-8">
       <div>
-        <label className="label">
+        {/* <label className="label">
           <span className="text-base label-text">Email</span>
-        </label>
+        </label> */}
         <input
           type="text"
           placeholder="Email Address"
@@ -21,12 +21,12 @@ export default function Login() {
         />
       </div>
       <div>
-        <label className="label">
+        {/* <label className="label">
           <span className="text-base label-text">Password</span>
-        </label>
+        </label> */}
         <input
           type="password"
-          placeholder="Enter Password"
+          placeholder="Password"
           className="w-full input input-bordered"
         />
       </div>
@@ -36,7 +36,7 @@ export default function Login() {
       >
         Register now?
       </Link>
-      <div>
+      <div className='pt-6'>
         <button className="btn btn-block bg-sky-400 text-white hover:bg-blue-600">Sign in</button>
       </div>
     </form>

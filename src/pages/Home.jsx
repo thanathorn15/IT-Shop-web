@@ -44,7 +44,7 @@ export default function Home() {
                 </button>
               </div>
               <button className="bg-sky-400 text-sky-50 hover:bg-sky-50 hover:text-sky-400 duration-300 border border-sky-400 px-2 py-1 rounded-md">
-                add to cart
+                Add to cart
               </button>
             </div>
           </div>
@@ -79,7 +79,7 @@ export default function Home() {
                 </button>
               </div>
               <button className="bg-sky-400 text-sky-50 hover:bg-sky-50 hover:text-sky-400 duration-300 border border-sky-400 px-2 py-1 rounded-md">
-                add to cart
+                Add to cart
               </button>
             </div>
           </div>
@@ -114,7 +114,7 @@ export default function Home() {
                 </button>
               </div>
               <button className="bg-sky-400 text-sky-50 hover:bg-sky-50 hover:text-sky-400 duration-300 border border-sky-400 px-2 py-1 rounded-md">
-                add to cart
+                Add to cart
               </button>
             </div>
           </div>

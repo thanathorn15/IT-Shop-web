@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from '../components/Footer'
 
 export default function 
 () {
@@ -7,6 +8,7 @@ export default function
         <div className='text-lg text-center'>
         CartPage
         </div>
+        
     </div>
 
   )
