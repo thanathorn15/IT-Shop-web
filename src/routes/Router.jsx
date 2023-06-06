@@ -1,20 +1,14 @@
-import { Route, Routes } from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Home from "../pages/Home";
-import Products from "../pages/Products";
-import MyOrder from "../pages/MyOrder";
-import Login from "../pages/Login";
-import Register from "../pages/Register";
-import Cart from "../pages/Cart";
+// import Login from "../pages/Login";
+// import Register from "../pages/Register";
+// import Navbar from "../components/Navbar";
 
-export default function Router() {
-  return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/product" element={<Products />} />
-      <Route path="/myorder" element={<MyOrder />} />
-      <Route path="/cart" element={<Cart />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-    </Routes>
-  );
+export default  Router = () => {
+  const router = createBrowserRouter([
+
+    { path: "/home", element: <Home /> },
+  ]);
+ 
+  return <RouterProvider router={router} />;
 }
