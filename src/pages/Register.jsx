@@ -1,7 +1,10 @@
+import {useForm} from 'react-hook-form'
 import React from 'react'
-import { Link } from 'react-router-dom'
+
 
 export default function Register() {
+  const { register, handleSubmit,formState: {errors} } = useForm();
+  const onSubmit = data => console.log(data);
   return (
     <div>
       
@@ -11,63 +14,64 @@ export default function Register() {
     <h1 className="text-3xl font-semibold text-center text-gray-700 pb-8">
       Register
     </h1>
-    <form className="space-y-4">
+    <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
       <div>
-        {/* <label className="label">
-          <span className="text-base label-text">Firstname</span>
-        </label> */}
+       
         <input
           type="text"
           placeholder="Firstname"
           className="w-full input input-bordered"
+          {...register("firstName", { required: true })}
         />
+        {errors.firstName?.type === 'required' && <p className='text-red-500' role="alert">First name is required</p>}
       </div>
-      <div>
-        {/* <label className="label">
-          <span className="text-base label-text">Lastname</span>
-        </label> */}
-        <input
+       <div> 
+       
+         <input
           type="text"
           placeholder="Lastname"
           className="w-full input input-bordered"
+          {...register("lastName", { required: true })}
         />
+         {errors.lastName?.type === 'required' && <p className='text-red-500' role="alert">Last name is required</p>}
       </div>
-      <div>
-        {/* <label className="label">
-          <span className="text-base label-text">Email</span>
-        </label> */}
+      <div> 
+       
         <input
           type="email"
           placeholder="Email"
           className="w-full input input-bordered"
+          {...register("email", { required: true })}
         />
+        {errors.email?.type === 'required' && <p className='text-red-500' role="alert">Email is required</p>}
       </div>
       <div>
-        {/* <label className="label">
-          <span className="text-base label-text">Password</span>
-        </label> */}
+        
         <input
           type="password"
           placeholder="Password"
           className="w-full input input-bordered"
+          {...register("password", { required: true, min:6  })}
         />
+         {errors.password?.type === 'required' && <p className='text-red-500' role="alert">Password is required</p>}
       </div>
       <div>
-        {/* <label className="label">
-          <span className="text-base label-text">Password</span>
-        </label> */}
+       
         <input
           type="password"
           placeholder="Confirm Password"
           className="w-full input input-bordered"
+          {...register("confirmPassword", { required: true })}
         />
+       {errors.confirmPassword?.type === 'required' && <p className='text-red-500' role="alert">Confirm Password is required</p>}
       </div>
-      
+       
       
       <div className='pt-6'>
         <button className="btn btn-block bg-sky-400 text-white hover:bg-blue-600">Sign up</button>
       </div>
     </form>
+
   </div>
 </div>
 

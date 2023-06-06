@@ -5,10 +5,8 @@ export default function
 () {
   return (
     <div>
-        <div className='text-lg text-center'>
-        CartPage
-        </div>
-        
+       <h2 className='flex justify-center items-center my-56'>Please add product to cart</h2>
+        <Footer/>
     </div>
 
   )
