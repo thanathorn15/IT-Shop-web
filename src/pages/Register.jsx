@@ -63,7 +63,7 @@ export default function Register() {
           className="w-full input input-bordered"
           {...register("confirmPassword", { required: true })}
         />
-       {errors.confirmPassword?.type === 'required' && <p className='text-red-500' role="alert">Confirm Password is required</p>}
+       {/* {errors.confirmPassword?.type === 'required' && <p className='text-red-500' role="alert">Confirm Password is required</p>} */}
       </div>
        
       
