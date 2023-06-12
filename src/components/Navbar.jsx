@@ -40,7 +40,9 @@ export default function Navbar() {
                     <Link to="/login">Login</Link>
                   </li>
                 ) : (
-                  <li onClick={hdlLogout}>Logout</li>
+                  <li>
+                  <Link  onClick={hdlLogout} to="/login">Logout</Link>
+                  </li>
                 )}
               </>
             </ul>

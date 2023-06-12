@@ -2,11 +2,14 @@
 import React from 'react'
 import { useState } from 'react'
 import { register } from '../api/authApi'
+import {useNavigate} from 'react-router-dom'
 
 
 export default function Register() {
   // const { register, handleSubmit,formState: {errors} } = useForm();
   // const onSubmit = data => console.log(data);
+
+  const navigate = useNavigate()
 
   const [input,setInput] = useState({
     firstName : '',
@@ -31,6 +34,7 @@ const hdlSubmit = e => {
     password : password
   }).then(rs => {
     console.log(rs)
+    navigate('/')
    }).catch(err => console.log(err))
 
 }
