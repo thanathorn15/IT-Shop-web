@@ -1,8 +1,23 @@
-import axios from "./axios";
+import axios from 'axios'
 
-export const register = input => axios.post('/auth/register',input)
+const authApi = axios.create({
+    baseURL : 'http://localhost:8888'
+})
 
-export const login = input => axios.post('/auth/login',input)
+const addToken = (token) => ({
+    headers : {
+        Authorization: `Bearer ${token}`
+    }
+})
 
-export const fetchMe = () => axios.get('/auth/me')
+export const register = (input) => {
+    return authApi.post('/auth/register', input)
+}
 
+export const login = (input) => {
+    return authApi.post('/auth/login', input)
+}
+
+export const getMe = (token) => {
+    return authApi.get('/auth/getme', addToken(token))
+}

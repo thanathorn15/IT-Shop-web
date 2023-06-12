@@ -1,10 +1,37 @@
 import React from 'react'
-import { useForm } from 'react-hook-form';
+// import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom'
 
+import {useState} from "react";
+import { useAuth } from "../contexts/AuthContext";
+import {login,getMe,register} from '../api/authApi'
+
 export default function Login() {
-  const { register, handleSubmit,formState: {errors} } = useForm();
-  const onSubmit = data => console.log(data);
+  // const { register, handleSubmit,formState: {errors} } = useForm();
+  // const onSubmit = data => console.log(data);
+
+  const {user, setUser} = useAuth()
+
+  const [input, setInput] = useState({
+    email : '',
+    password : '',
+  })
+
+  const hdlChangeInput = e => {
+    setInput({...input, [e.target.name] : e.target.value}) 
+  }
+
+  const hdlSubmit = e => {e.preventDefault()
+    login(input)
+    .then( rs => {
+      // console.log(rs.data.token)
+      localStorage.setItem('token',rs.data.token)
+      return getMe(rs.data.token)
+    }).then( rs => {
+      console.log(rs.data)
+      setUser(rs.data)
+    }).catch(err => alert(err.response.data.error || err.message))
+  }
   return (
     <div className='bg-[url("https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80")]'>
       <div className="relative flex flex-col justify-center h-screen overflow-hidden ">
@@ -12,16 +39,19 @@ export default function Login() {
     <h1 className="text-3xl font-semibold text-center text-gray-700">
       Login
     </h1>
-    <form className="space-y-4 pt-8" onSubmit={handleSubmit(onSubmit)}>
+    <form className="space-y-4 pt-8"  onSubmit={hdlSubmit}>
       <div>
        
         <input
           type="text"
           placeholder="Email Address"
           className="w-full input input-bordered"
-          {...register("email", { required: true })}
+          // {...register("email", { required: true })}
+          name="email"
+          onChange={hdlChangeInput}
+          value={input.email}
         />
-        {errors.email?.type === 'required' && <p className='text-red-500' role="alert">Email is required</p>}
+        {/* {errors.email?.type === 'required' && <p className='text-red-500' role="alert">Email is required</p>} */}
       </div>
       <div>
        
@@ -29,9 +59,12 @@ export default function Login() {
           type="password"
           placeholder="Password"
           className="w-full input input-bordered"
-          {...register("password", { required: true, min:6  })}
+          // {...register("password", { required: true, min:6  })}
+          name="password"
+          onChange={hdlChangeInput}
+            value={input.password}
         />
-         {errors.password?.type === 'required' && <p className='text-red-500' role="alert">Password is required</p>}
+         {/* {errors.password?.type === 'required' && <p className='text-red-500' role="alert">Password is required</p>} */}
       </div>
       <Link
         to = "/register"

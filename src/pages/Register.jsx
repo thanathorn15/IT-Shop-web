@@ -1,10 +1,39 @@
-import {useForm} from 'react-hook-form'
+// import {useForm} from 'react-hook-form'
 import React from 'react'
+import { useState } from 'react'
+import { register } from '../api/authApi'
 
 
 export default function Register() {
-  const { register, handleSubmit,formState: {errors} } = useForm();
-  const onSubmit = data => console.log(data);
+  // const { register, handleSubmit,formState: {errors} } = useForm();
+  // const onSubmit = data => console.log(data);
+
+  const [input,setInput] = useState({
+    firstName : '',
+    lastName : '',
+    email : '',
+    password : '',
+    confirmPassword : ''
+})
+
+const hdlChangeInput = e => {
+    setInput({...input,[e.target.name] : e.target.value})
+}
+const hdlSubmit = e => {
+    const {firstName,lastName,email,password,confirmPassword} = input
+    e.preventDefault()
+    if(password !== confirmPassword)
+   return alert('plase recheck password')
+  register({
+    firstName: firstName,
+    lastName: lastName,
+    email : email,
+    password : password
+  }).then(rs => {
+    console.log(rs)
+   }).catch(err => console.log(err))
+
+}
   return (
     <div>
       
@@ -14,16 +43,20 @@ export default function Register() {
     <h1 className="text-3xl font-semibold text-center text-gray-700 pb-8">
       Register
     </h1>
-    <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
+    {/* <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}> */}
+    <form className="space-y-4" onSubmit={hdlSubmit}>
       <div>
        
         <input
           type="text"
           placeholder="Firstname"
           className="w-full input input-bordered"
-          {...register("firstName", { required: true })}
+          // {...register("firstName", { required: true })}
+          name="firstName"
+          onChange={hdlChangeInput}
+          value={input.firstName}
         />
-        {errors.firstName?.type === 'required' && <p className='text-red-500' role="alert">First name is required</p>}
+        {/* {errors.firstName?.type === 'required' && <p className='text-red-500' role="alert">First name is required</p>} */}
       </div>
        <div> 
        
@@ -31,9 +64,12 @@ export default function Register() {
           type="text"
           placeholder="Lastname"
           className="w-full input input-bordered"
-          {...register("lastName", { required: true })}
+          // {...register("lastName", { required: true })}
+          name="lastName"
+          onChange={hdlChangeInput}
+          value={input.lastName}
         />
-         {errors.lastName?.type === 'required' && <p className='text-red-500' role="alert">Last name is required</p>}
+         {/* {errors.lastName?.type === 'required' && <p className='text-red-500' role="alert">Last name is required</p>} */}
       </div>
       <div> 
        
@@ -41,9 +77,12 @@ export default function Register() {
           type="email"
           placeholder="Email"
           className="w-full input input-bordered"
-          {...register("email", { required: true })}
+          // {...register("email", { required: true })}
+          name="email"
+          onChange={hdlChangeInput}
+          value={input.email}
         />
-        {errors.email?.type === 'required' && <p className='text-red-500' role="alert">Email is required</p>}
+        {/* {errors.email?.type === 'required' && <p className='text-red-500' role="alert">Email is required</p>} */}
       </div>
       <div>
         
@@ -51,9 +90,12 @@ export default function Register() {
           type="password"
           placeholder="Password"
           className="w-full input input-bordered"
-          {...register("password", { required: true, min:6  })}
+          // {...register("password", { required: true, min:6  })}
+          name="password"
+          onChange={hdlChangeInput}
+          value={input.password}
         />
-         {errors.password?.type === 'required' && <p className='text-red-500' role="alert">Password is required</p>}
+         {/* {errors.password?.type === 'required' && <p className='text-red-500' role="alert">Password is required</p>} */}
       </div>
       <div>
        
@@ -61,7 +103,10 @@ export default function Register() {
           type="password"
           placeholder="Confirm Password"
           className="w-full input input-bordered"
-          {...register("confirmPassword", { required: true })}
+          // {...register("confirmPassword", { required: true })}
+          name="confirmPassword"
+        onChange={hdlChangeInput}
+        value={input.confirmPassword}
         />
        {/* {errors.confirmPassword?.type === 'required' && <p className='text-red-500' role="alert">Confirm Password is required</p>} */}
       </div>
