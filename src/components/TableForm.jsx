@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-export default function TableForm() {
+export default function TableForm({id, src, name, brand, price,quantity,userId,productId}) {
   return (
     <div>
         <div className="overflow-x-auto">
@@ -10,12 +10,14 @@ export default function TableForm() {
     <thead>
       <tr>
         <th></th>
-        <th>Product</th>
-        <th>Name</th>
+        {/* <th>Product</th>
+        <th>Name</th> */}
         <th>Price</th>
-        <th>Category</th>
-        <th>Brand</th>
+        {/* <th>Brand</th> */}
         <th>Quantity</th>
+        <th>userId</th>
+        <th>productId</th>
+        
         <th></th>
       </tr>
     </thead>
@@ -23,32 +25,33 @@ export default function TableForm() {
       
     
       <tr>
-        <th>
-        
-        </th>
+       
         <td>
           <div className="flex items-center space-x-3">
-            <div className="avatar">
-              <div className="mask-square w-20 h-20">
-                <img src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14-plus.jpg" />
-              </div>
-            </div>
+            {/* <div className="avatar"> */}
+              {/* <div className="mask-square w-20 h-20">
+                {src}
+              </div> */}
+            {/* </div> */}
            
           </div>
         </td>
-        <td>
-        Apple iPhone 14 Plus
+        {/* <td>
+        {name}
           <br/>
-        </td>
-        <td>42,000฿</td>
-        <td>
-          Smart phone
-        </td>
-        <td>
-          Apple
+        </td> */}
+        <td>{price}</td>
+        {/* <td>
+          {brand}
+        </td> */}
+        <td >
+           {quantity}
         </td>
         <td >
-           1
+           {userId}
+        </td>
+        <td >
+           {productId}
         </td>
       </tr>
      

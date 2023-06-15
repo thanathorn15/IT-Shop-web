@@ -7,14 +7,17 @@ import Register from '../pages/Register'
 import Products from '../pages/Products'
 import MyOrder from '../pages/MyOrder'
 import Cart from '../pages/Cart'
-
-
+import AddProduct from '../pages/AddProduct'
+import AdminProducts from '../pages/AdminProducts'
+import EditProduct from '../pages/EditProduct'
 
 
 export default function Router() {
   const {user} = useAuth()
  
   const router = createBrowserRouter([
+
+  
     {
         path: '/',
         element : (
@@ -27,34 +30,54 @@ export default function Router() {
         children : [
             {
                 path: '/',
-                element: user? <Home/> : <Login />
+                element: <Home/> 
             },
             {
                 path: 'login',
-                element: user? <Navigate to='/' /> : <Login />
+                element:  <Login />
             },
             {
                 path: 'register',
-                element: user ? <Navigate to='/' /> : <Register />
+                element: <Register />
             },
             {
               path: 'product',
-              element: user ? <Products /> :<Navigate to='/' /> 
+              element: <Products />  
           },
           {
             path: 'cart',
-            element: user ? <Cart /> :<Navigate to='/' /> 
+            element:<Cart /> 
         },
           {
             path: 'myorder',
-            element: user ?  <MyOrder />:<Navigate to='/' /> 
+            element:  <MyOrder />
         },
+
+        {
+          path: 'adminproduct',
+          element: <AdminProducts /> 
+      },
+      {
+        path: 'addproduct',
+        element:  <AddProduct/>
+    },
+
+    {
+      path: 'editproduct/:id',
+      element:  <EditProduct/>
+  },
+   
+
        
      ]
-    }
-  ])
+    },
 
+
+  ])
   return (
     <RouterProvider router={router}/>
   )
 }
+
+
+

@@ -7,6 +7,8 @@ export default function Navbar() {
   const navigate = useNavigate();
   const { user, logout } = useAuth();
 
+  const btnrole = user?.role || 'user'
+console.log(user)
   const hdlLogout = () => {
     logout();
     navigate("/");
@@ -21,6 +23,15 @@ export default function Navbar() {
           <div className="flex-none">
             <ul className="menu menu-horizontal px-1 font-semibold">
               <>
+              { btnrole === 'ADMIN' ? (
+                <li>
+                  <Link to="/adminproduct">Admin</Link>
+                </li>)
+
+                : (
+                <></>
+                )
+              }
                 <li>
                   <Link to="/">Home</Link>
                 </li>
@@ -41,7 +52,9 @@ export default function Navbar() {
                   </li>
                 ) : (
                   <li>
-                  <Link  onClick={hdlLogout} to="/login">Logout</Link>
+                    <Link onClick={hdlLogout} to="/login">
+                      Logout
+                    </Link>
                   </li>
                 )}
               </>
