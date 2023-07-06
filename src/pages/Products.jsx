@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getAllProducts } from "../api/authApi";
+import { getAllProducts,deleteProduct } from "../api/authApi";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
 import CardForm from "../features/products/components/CardForm";
@@ -51,7 +51,7 @@ export default function Products() {
     <div>
     <div className="flex gap-4">
       <Sidebar/>
-      <div className="grid grid-cols-3 gap-4 ">
+      <div className="grid grid-cols-4 gap-4 ">
         {Cards}
     
         

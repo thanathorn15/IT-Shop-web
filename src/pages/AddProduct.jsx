@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { addProduct } from "../api/authApi";
 import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
 
 export default function AddProduct() {
+  const [file,setFile] = useState("")
+  const [selectedImage, setSelectedImage] = useState(null);
+
   const [input, setInput] = useState({
     name: "",
     price: "",
@@ -27,6 +31,13 @@ const navigate = useNavigate()
     })
   
   }
+
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0]; // รับไฟล์รูปภาพที่เลือก
+    setSelectedImage(URL.createObjectURL(file)); // เก็บ URL ของรูปภาพที่เลือกใน state
+    
+  };
+
   return (
     <div>
       <div className="relative flex flex-col justify-center h-screen overflow-hidden">
@@ -38,7 +49,7 @@ const navigate = useNavigate()
           <form className="space-y-4" onSubmit={hdlSubmit}>
             <div>
               <input
-                placeholder="name"
+                placeholder="Name"
                 className="w-full input input-bordered"
                 name="name"
                 onChange={hdlChangeInput}
@@ -72,7 +83,9 @@ const navigate = useNavigate()
                 value={input.detail}
               />
             </div>
-            <div>
+
+                            
+            {/* <div>
               <input
                 placeholder="Image"
                 className="w-full input input-bordered"
@@ -80,7 +93,7 @@ const navigate = useNavigate()
                 onChange={hdlChangeInput}
                 value={input.image}
               />
-            </div>
+            </div> */}
 
             <div>
               <input
@@ -92,11 +105,16 @@ const navigate = useNavigate()
               />
             </div>
 
+            <div>
+      <input type="file" onChange={handleImageUpload} />
+      {selectedImage && <img src={selectedImage} alt="Selected" className="w-40 h-40 pt-4" />}
+    </div>
+
             <div className="pt-6 flex gap-4 justify-center">
               <button className="btn w-40 bg-sky-400 text-white hover:bg-blue-600">
                 Save
               </button>
-              <button className="btn w-40 bg-sky-400 text-white hover:bg-blue-600">
+              <button className="btn w-40 bg-sky-400 text-white hover:bg-blue-600" onClick={()=>setInput(null)}>
                 Cancel
               </button>
             </div>

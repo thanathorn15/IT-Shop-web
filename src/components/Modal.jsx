@@ -11,8 +11,8 @@ export default function Modal({src,
   return (
     
         <div>
-      <button
-        className="text-sky-400 px-2 py-1 border border-sky-400 rounded-md hover:bg-sky-400 hover:text-sky-50 duration-300 "
+     <button
+        className=" bg-sky-400  text-white hover:bg-sky-600 hover:text-white duration-300 border  px-2 py-1 rounded-md h-12 "
         onClick={() => window.my_modal_5.showModal()}
       
       >

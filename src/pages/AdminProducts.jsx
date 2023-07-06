@@ -12,7 +12,6 @@ export default function AdminProducts() {
 
   const hdlDelete = (e) => {
     let id = e.target.id;
-    console.log(e);
     let token = localStorage.getItem("token");
     deleteProduct(id, token).then((rs) => {
       if (rs.data > 0) {
@@ -24,24 +23,9 @@ export default function AdminProducts() {
     });
   };
 
-  const Cards = products.map((product) => {
-    return (
-      <CardForm
-        key={product.id}
-        id={product.id}
-        src={product.src}
-        name={product.name}
-        brand={product.brand}
-        price={product.price}
-        hdlDelete={hdlDelete}
-      />
-    );
-  });
-
   useEffect(() => {
     let token = localStorage.getItem("token");
     getAllProducts(token).then((rs) => {
-      console.log(rs.data);
       setProducts(rs.data);
     });
   }, []);
@@ -50,12 +34,22 @@ export default function AdminProducts() {
     <>
       <div className="py-6 flex justify-center">
         <Link to="/addproduct">
-          <button className="btn  bg-sky-400 text-white hover:bg-blue-600 ">
+          <button className="btn  bg-sky-400 text-white hover:bg-blue-600 w-32">
             Add +
           </button>
         </Link>
       </div>
-      <div className="grid grid-cols-3">{Cards}</div>
+      <div className="grid grid-cols-4 gap-4 mx-12">
+        {products.map((el) => (
+          <CardForm key={el.id}
+                id={el.id}
+                src={el.src}
+                name={el.name}
+                brand={el.brand}
+                price={el.price}
+                hdlDelete={hdlDelete} />
+        ))}
+      </div>
     </>
   );
 }

@@ -16,6 +16,7 @@ export default function AuthContextProvider(props) {
         setUser(rs.data)
       })
     },[] )
+    
     const logout = () => {
       localStorage.removeItem('token')
       setUser(null)

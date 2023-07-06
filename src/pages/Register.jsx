@@ -49,7 +49,7 @@ export default function Register() {
   };
   return (
     <div>
-      <div className='bg-[url("https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1172&q=80")] '>
+      <div className='bg-[url("https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1550&q=80")] '>
         <div className="relative flex flex-col justify-center h-screen overflow-hidden">
           <div className="w-full p-6 m-auto bg-white rounded-md shadow-md ring-2 ring-gray-800/50 lg:max-w-lg">
             <h1 className="text-3xl font-semibold text-center text-gray-700 pb-8">

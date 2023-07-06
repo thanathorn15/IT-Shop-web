@@ -106,7 +106,7 @@ export default function EditProduct() {
               <button type="submit" className="btn w-40 bg-sky-400 text-white hover:bg-blue-600">
                 Save
               </button>
-              <button className="btn w-40 bg-sky-400 text-white hover:bg-blue-600">
+              <button className="btn w-40 bg-sky-400 text-white hover:bg-blue-600" onClick={()=>setInput(null)}>
                 Cancel
               </button>
             </div>

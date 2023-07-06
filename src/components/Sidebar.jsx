@@ -7,13 +7,13 @@ export default function Sidebar() {
         <div className="flex items-center p-2 space-x-4 ">
          
           <div >
-            <h2 className="text-lg font-semibold ">Category</h2>
+            {/* <h2 className="text-lg font-semibold ">Category</h2> */}
          
           </div>
         </div>
         <div className="divide-y divide-gray-700">
-          <ul className="pt-2 pb-4 space-y-1 text-sm">
-            <li className="dark:bg-gray-800 dark:text-gray-50">
+          <ul className="pt-2 pb-4 space-y-1 text-sm font-semibold">
+            <li className="dark:bg-gray-800 dark:text-gray-50 ">
               <a
                 rel="noopener noreferrer"
                 href="#"
