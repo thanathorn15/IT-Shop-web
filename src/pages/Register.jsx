@@ -5,6 +5,7 @@ import { register } from "../api/authApi";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { getMe } from "../api/authApi";
+import {toast } from 'react-toastify';
 
 export default function Register() {
   // const { register, handleSubmit,formState: {errors} } = useForm();
@@ -29,7 +30,7 @@ export default function Register() {
   const hdlSubmit = (e) => {
     const { firstName, lastName, email, password, confirmPassword } = input;
     e.preventDefault();
-    if (password !== confirmPassword) return alert("plase recheck password");
+    if (password !== confirmPassword) return toast.error('Sign up Failed');
     register({
       firstName: firstName,
       lastName: lastName,
@@ -44,9 +45,13 @@ export default function Register() {
         console.log(rs.data);
         setUser(rs.data);
         navigate("/");
+        toast.success('Sign up Success')
       })
-      .catch((err) => alert(err.message));
+      .catch((err) =>  toast.error('Sign up Failed'));
   };
+
+
+  
   return (
     <div>
       <div className='bg-[url("https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1550&q=80")] '>

@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { login, getMe, register } from "../api/authApi";
 import { useNavigate } from "react-router-dom";
+import {toast } from 'react-toastify';
 
 export default function Login() {
   // const { register, handleSubmit,formState: {errors} } = useForm();
@@ -28,17 +29,16 @@ export default function Login() {
     e.preventDefault();
     login(input)
       .then((rs) => {
-        // console.log(rs.data.token)
         localStorage.setItem("token", rs.data.token);
-        console.log(rs.data.token);
         return getMe(rs.data.token);
       })
       .then((rs) => {
-        console.log(rs.data);
         setUser(rs.data);
         navigate("/");
+        toast.success('Sign in Success')
       })
-      .catch((err) => alert(err.response.data.error || err.message));
+      .catch((err) => toast.error('Sign in Failed'));
+      
   };
   return (
     <div className='bg-[url("https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1550&q=80")] '>

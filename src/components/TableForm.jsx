@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-export default function TableForm({id, src, name, brand, price,quantity,userId,productId}) {
+export default function TableForm({ image,name,price,quantity,userId,productId}) {
   return (
     <div>
         <div className="overflow-x-auto">
@@ -10,13 +10,13 @@ export default function TableForm({id, src, name, brand, price,quantity,userId,p
     <thead>
       <tr>
         <th></th>
-        {/* <th>Product</th>
-        <th>Name</th> */}
+        <th>Product</th>
+        <th>Name</th> 
         <th>Price</th>
         {/* <th>Brand</th> */}
         <th>Quantity</th>
-        <th>userId</th>
-        <th>productId</th>
+        {/* <th>userId</th> */}
+        {/* <th>productId</th> */}
         
         <th></th>
       </tr>
@@ -40,6 +40,8 @@ export default function TableForm({id, src, name, brand, price,quantity,userId,p
         {name}
           <br/>
         </td> */}
+        <td><img className='w-40 h-40 rounded-sm object-cover' src={image}  /></td>
+        <td>{name}</td>
         <td>{price}</td>
         {/* <td>
           {brand}
@@ -47,12 +49,12 @@ export default function TableForm({id, src, name, brand, price,quantity,userId,p
         <td >
            {quantity}
         </td>
-        <td >
+        {/* <td >
            {userId}
-        </td>
-        <td >
+        </td> */}
+        {/* <td >
            {productId}
-        </td>
+        </td> */}
       </tr>
      
     </tbody>

@@ -1,34 +1,36 @@
-import {createContext,useState,useContext, useEffect} from 'react'
-import {getMe} from '../api/authApi'
+import { createContext, useState, useContext, useEffect } from "react";
+import { getMe } from "../api/authApi";
+import {toast } from 'react-toastify';
 
-const AuthContext = createContext()
-
+const AuthContext = createContext();
 
 export default function AuthContextProvider(props) {
-    const [user,setUser] = useState(null) 
+  const [user, setUser] = useState(null);
 
+  useEffect(() => {
+    let token = localStorage.getItem("token");
+    if (!token) return;
+    getMe(token).then((rs) => {
+      setUser(rs.data);
+    });
+  }, []);
 
-    useEffect( ()=>{
-      let token = localStorage.getItem('token')
-      if(!token)
-        return;
-    getMe(token).then(rs => {
-        setUser(rs.data)
-      })
-    },[] )
-    
-    const logout = () => {
-      localStorage.removeItem('token')
-      setUser(null)
+  const logout = () => {
+    try {
+      localStorage.removeItem("token");
+      setUser(null);
+      toast.success('logout Success')
+    }catch(err) {
+      toast.error('logout Failed')
     }
-
+  };
   return (
-    <AuthContext.Provider value = {{user,setUser,logout}}>
-        {props.children}
+    <AuthContext.Provider value={{ user, setUser, logout }}>
+      {props.children}
     </AuthContext.Provider>
-  )
+  );
 }
 
 export const useAuth = () => {
-    return useContext(AuthContext)
-}
+  return useContext(AuthContext);
+};

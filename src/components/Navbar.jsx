@@ -2,13 +2,16 @@ import React from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import CartIcon from "../icon";
 import { useAuth } from "../contexts/AuthContext";
+import Spinner from "./loading";
+import { useState } from "react";
 
 export default function Navbar() {
   const navigate = useNavigate();
   const { user, logout } = useAuth();
+  const [loading, setLoading] = useState(false);
 
   const btnrole = user?.role || "user";
-  console.log(user);
+  // console.log(user);
   const hdlLogout = () => {
     logout();
     navigate("/");
@@ -60,6 +63,7 @@ export default function Navbar() {
           </div>
         </div>
       </div>
+      <Spinner loading={loading} />
     </div>
   );
 }

@@ -46,10 +46,13 @@ export const addCart = (input, token) => {
   return authApi.post("/cart/addCart", input, addToken(token));
 };
 
-export const getCartById = (id, token) => {
+export const getCartByUserId = (id, token) => {
   return authApi.get(`/cart/${id}`, addToken(token));
 };
 export const getCart = (token) => {
     return authApi.get(`/cart/getcart`, addToken(token));
   };
   
+  export const addImage = (id,input, token) => {
+    return authApi.post(`/product/image/${id}`, input, addToken(token));
+  };

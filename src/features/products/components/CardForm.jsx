@@ -11,24 +11,24 @@ import Modal from "../../../components/Modal";
 
 export default function CardForm({
   id,
-  src,
   name,
   brand,
   price,
   userId,
   hdlDelete,
+  image
 }) {
   const navigate = useNavigate();
 
   const { user } = useAuth();
 
   const btnrole = user?.role || "user";
-  console.log(user);
+  
   
 
   const [input, setInput] = useState({
     productId: id,
-    userId: 5,
+    userId: user.id,
     quantity: 1,
     price: price,
   });
@@ -38,8 +38,9 @@ export default function CardForm({
 
     let token = localStorage.getItem("token");
     addCart(input, token).then((rs) => {
-      console.log(rs);
-      navigate("/cart");
+      // console.log(rs);
+      setInput(rs)
+      // navigate("/cart");
     });
   };
 
@@ -51,8 +52,8 @@ export default function CardForm({
       >
         <div className="flex justify-center ">
           <img
-            className="w-72 h-48 object-contain hover:scale-110 duration-500"
-            src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14-plus.jpg"
+            className="w-72 h-72 object-cover hover:scale-110 duration-500"
+            src={image}
           />
         </div>
         <div className=" flex justify-between items-center">
@@ -71,7 +72,7 @@ export default function CardForm({
           <>
           <button
         className="   text-sky-400 hover:text-sky-600   px-2 py-1 rounded-md h-12 "
-        onClick={() => window.my_modal_5.showModal()}
+        // onClick={() => window.my_modal_5.showModal()}
       
       >
         More Detail
@@ -93,14 +94,14 @@ export default function CardForm({
             <>
                   <div >
                   <Link to={`/editproduct/${id}`}>
-                    <button className="w-32 btn btn-squre text-white bg-emerald-500 hover:text-sky-500">Edit</button>
+                    <button className="w-32 btn btn-squre text-white bg-emerald-500  hover:bg-emerald-700">Edit</button>
                   </Link>
                 </div>
       
                 <div >
                   <button
                     id={id}
-                    className="w-32 btn btn-squre bg-rose-600 text-white"
+                    className="w-32 btn btn-squre bg-rose-500 text-white  hover:bg-red-600"
                     onClick={hdlDelete}
                   >
                     Delete

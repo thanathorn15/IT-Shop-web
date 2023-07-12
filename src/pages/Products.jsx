@@ -30,7 +30,7 @@ export default function Products() {
       <CardForm
         key={product.id}
         id={product.id}
-        src={product.src}
+        image={product.image}
         name={product.name}
         brand={product.brand}
         price={product.price}

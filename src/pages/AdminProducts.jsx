@@ -43,7 +43,7 @@ export default function AdminProducts() {
         {products.map((el) => (
           <CardForm key={el.id}
                 id={el.id}
-                src={el.src}
+                image={el.image}
                 name={el.name}
                 brand={el.brand}
                 price={el.price}
