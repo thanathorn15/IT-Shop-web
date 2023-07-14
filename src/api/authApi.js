@@ -50,9 +50,23 @@ export const getCartByUserId = (id, token) => {
   return authApi.get(`/cart/${id}`, addToken(token));
 };
 export const getCart = (token) => {
-    return authApi.get(`/cart/getcart`, addToken(token));
-  };
-  
-  export const addImage = (id,input, token) => {
-    return authApi.post(`/product/image/${id}`, input, addToken(token));
-  };
+  return authApi.get(`/cart/getcart`, addToken(token));
+};
+
+export const getOrder = (token) => {
+  return authApi.get(`/order/getorder/`, addToken(token));
+};
+export const getOrderByUserId = (id, token) => {
+  return authApi.get(`/order/${id}`, addToken(token));
+};
+export const addOrder = (input, token) => {
+  return authApi.post("/order/addOrder", input, addToken(token));
+};
+export const updateOrder = (id, input, token) => {
+  console.log("HIIII");
+  return authApi.patch(`/order/updateOrder/${id}`, input, addToken(token));
+};
+
+export const addImage = (id, input, token) => {
+  return authApi.post(`/product/image/${id}`, input, addToken(token));
+};

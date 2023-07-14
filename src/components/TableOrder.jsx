@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function TableForm({ image, name, price, quantity }) {
+export default function TableOrder({ image, name, price, quantity,status }) {
   return (
     <div>
       <div className="overflow-x-auto">
@@ -12,6 +12,7 @@ export default function TableForm({ image, name, price, quantity }) {
               <th>Name</th>
               <th>Price</th>
               <th>Quantity</th>
+              <th>Status</th>
               <th></th>
             </tr>
           </thead>
@@ -28,6 +29,7 @@ export default function TableForm({ image, name, price, quantity }) {
               <td>{name}</td>
               <td>{price}</td>
               <td>{quantity}</td>
+              <td>{status}</td>
             </tr>
           </tbody>
         </table>

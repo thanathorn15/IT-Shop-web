@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { addCart } from "../../../api/authApi";
 import { useAuth } from "../../../contexts/AuthContext";
 import Modal from "../../../components/Modal";
+import {toast } from 'react-toastify';
 
 
 export default function CardForm({
@@ -38,10 +39,9 @@ export default function CardForm({
 
     let token = localStorage.getItem("token");
     addCart(input, token).then((rs) => {
-      // console.log(rs);
       setInput(rs)
-      // navigate("/cart");
-    });
+      toast.success('Add to cart Success')
+    })
   };
 
   return (

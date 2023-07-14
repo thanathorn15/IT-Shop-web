@@ -33,6 +33,7 @@ export default function AddProduct() {
         const formData = new FormData(); 
         formData.append("image", file);
         addImage(rs.data.id, formData, token).then((rs) => {
+          console.log(rs)
           navigate("/adminproduct");
           setLoading(false)
         });
@@ -40,9 +41,9 @@ export default function AddProduct() {
     });
   };
 
-  const handleImageUpload = (event) => {
-    setFile(event.target.files[0]);
-    const file = event.target.files[0]; 
+  const handleImageUpload = (e) => {
+    setFile(e.target.files[0]);
+    const file = e.target.files[0]; 
     setSelectedImage(URL.createObjectURL(file)); 
   };
 

@@ -1,5 +1,5 @@
 import { Transition } from "@headlessui/react";
-import { HashLoader,RotateLoader} from "react-spinners";
+import { RotateLoader} from "react-spinners";
 
 
 const color = "#318CE7"
